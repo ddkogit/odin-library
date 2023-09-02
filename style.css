@@ -23,5 +23,17 @@ gap:10px
     background-color: green;
 
     height: 250px;
+   
+    display: grid;
+    align-items:center;
+    justify-content: center;
+   
+ 
+    
+    
+}
+
+.card *{
+    margin: 10px;
 }
 
