@@ -41,15 +41,18 @@ const cards = document.getElementById("cards");
 
 for(let i=0;i<myLibrary.length-1;i++){
 
+    
+
     const card = document.createElement("div");
-card.classList="card";
-    card.innerHTML=myLibrary[i].title;
-    card.style.width="50vw";
-    card.style.height="50vh";
-    
-    card.style.backgroundColor="green";
-    
+    card.classList="card";
+
+    card.innerHTML=myLibrary[0].title;
+
+
+  
     cards.append(card);
+   
+    
 }
     
 

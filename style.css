@@ -15,6 +15,13 @@ border: 1px solid black;
 display: grid;
 
 grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+gap:10px
 
+}
+
+.card{
+    background-color: green;
+
+    height: 250px;
 }
 
