@@ -20,7 +20,7 @@ const myLibrary = [
 ];
 
 function Book() {
-  // the constructor...
+  
 }
 
 function addBookToLibrary(title,author,pages,read) {
@@ -35,4 +35,22 @@ function addBookToLibrary(title,author,pages,read) {
 console.log(myLibrary);
 addBookToLibrary("book4","author4",500,false);
 console.log(myLibrary);
+
+
+const cards = document.getElementById("cards");
+
+for(let i=0;i<3;i++){
+
+    const card = document.createElement("div");
+card.classList="card";
+    card.innerHTML="hello";
+    card.style.width="50vw";
+    card.style.height="50vh";
+    
+    card.style.backgroundColor="green";
+    
+    cards.append(card);
+}
+    
+
 
