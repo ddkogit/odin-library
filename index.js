@@ -39,11 +39,11 @@ console.log(myLibrary);
 
 const cards = document.getElementById("cards");
 
-for(let i=0;i<3;i++){
+for(let i=0;i<myLibrary.length-1;i++){
 
     const card = document.createElement("div");
 card.classList="card";
-    card.innerHTML="hello";
+    card.innerHTML=myLibrary[i].title;
     card.style.width="50vw";
     card.style.height="50vh";
     
