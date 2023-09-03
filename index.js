@@ -112,13 +112,15 @@ const read = document.querySelector(".read");
 submit.addEventListener("click",()=>{
  
 
-    const book4= new Book("book4","author4",500,false);
-    const book5= new Book(title.value,author.value,pages.value,read.value);
+
+    const book5= new Book(title.value,author.value,pages.value,read.checked);
     
+    console.log(read.checked);
+
     title.value="";
     author.value="";
     pages.value="";
-    read.value="";
+    read.checked=false;
 
     addBookToLibrary(book5);
     
@@ -151,23 +153,23 @@ submit.addEventListener("click",()=>{
 
 
 //test
-const className = "removeButton";
+
 
 // Get all elements with the specified class
-const elementsWithClass = document.getElementsByClassName(className);
+// const elementsWithClass = document.getElementsByClassName(className);
 
 // Iterate through the elements and log their index (position) in the DOM
-for (let i = 0; i < elementsWithClass.length; i++) {
+// for (let i = 0; i < elementsWithClass.length; i++) {
    
-    cards.addEventListener("click", (event) => {
-        if (event.target.classList.contains("removeButton")) {
-            // Button with class "removeButton" was clicked
-            // myLibrary.pop();
-            console.log(myLibrary);
-            // You can access the specific button or perform removal logic here
-        }
-    });
-}
+//     cards.addEventListener("click", (event) => {
+//         if (event.target.classList.contains("removeButton")) {
+//             // Button with class "removeButton" was clicked
+//             // myLibrary.pop();
+//             console.log(myLibrary);
+//             // You can access the specific button or perform removal logic here
+//         }
+//     });
+// }
 
 // Log the total count of elements with the specified class
 cards.addEventListener("click", (event) => {
