@@ -50,6 +50,10 @@ const cards = document.getElementById("cards");
 
 
 addBook.addEventListener("click",()=>{
+
+    openForm.showModal();
+    
+
     const book4= new Book("book4","author4",500,false);
     
     addBookToLibrary(book4);
@@ -85,6 +89,21 @@ for(let i=0;i<myLibrary.length;i++){
    
     
 }
+
+
+// dilogue box and form
+
+const openForm = document.querySelector(".openForm")
+
+const close = document.querySelector(".close");
+
+console.log(close);
+
+close.addEventListener("click",()=>{
+    openForm.close();
+})
+
+
 
 
 
