@@ -33,12 +33,32 @@ function addBookToLibrary(book4) {
     myLibrary.push(book4);
 }
 
+function createBookCard(book){
+    const card = document.createElement("div");
+    card.classList="card";
+
+    const bookInfo = `Title: ${book.title}<br>Author: ${book.author}<br>Pages: ${book.pages}<br>Read: ${book.read ? "Yes" : "No"}`;
+    card.innerHTML=bookInfo;
+
+    return card;
+}
+
 const addBook = document.getElementById("addBook");
+
+const cards = document.getElementById("cards");
+
+
 
 addBook.addEventListener("click",()=>{
     const book4= new Book("book4","author4",500,false);
     
     addBookToLibrary(book4);
+    
+    
+
+    const newCard = createBookCard(book4);
+
+    cards.append(newCard);
 
     
 
@@ -49,22 +69,16 @@ addBook.addEventListener("click",()=>{
 
 
 
+// dynamic card update 
 
 
 
-
-const cards = document.getElementById("cards");
 
 for(let i=0;i<myLibrary.length;i++){
 
     const book = myLibrary[i];
 
-    const card = document.createElement("div");
-    card.classList="card";
-
-    const bookInfo = `Title: ${book.title}<br>Author: ${book.author}<br>Pages: ${book.pages}<br>Read: ${book.read ? "Yes" : "No"}`;
-    card.innerHTML=bookInfo;
-    
+    const card = createBookCard(book);  
  
 
     cards.append(card);
