@@ -84,8 +84,11 @@ for(let i=0;i<myLibrary.length;i++){
     card.append(cloneRemoveButton);
 
     const cloneReadButton = readButton.cloneNode(true);
+
     
     card.append(cloneReadButton);
+
+
 
     cloneReadButton.addEventListener("click",()=>{
         if(cloneReadButton.innerHTML=="read"){
@@ -105,9 +108,11 @@ for(let i=0;i<myLibrary.length;i++){
     
     if(myLibrary[i].read){
         cloneReadButton.textContent="read";
+        cloneReadButton.style.backgroundColor="aqua";
     }
     else{
         cloneReadButton.textContent="not read";
+        cloneReadButton.style.backgroundColor="orange";
     }
 
 
@@ -173,9 +178,12 @@ submit.addEventListener("click",()=>{
     if(read.checked==true){
 
         cloneReadButton.textContent="read";
+       
+
     }
     else{
         cloneReadButton.textContent="not read";
+     
 
     }
     cloneReadButton.addEventListener("click",()=>{
