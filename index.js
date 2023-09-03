@@ -24,27 +24,38 @@ function Book(title,author,pages,read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    return myLibrary.push(this.title,this.author,this.pages,this.read);
     
+
 }
 
-function addBookToLibrary(title,author,pages,read) {
+function addBookToLibrary(book4) {
     
-    myLibrary.push({
-        title,author,pages,read
-    })
+    myLibrary.push(book4);
 }
 
+const addBook = document.getElementById("addBook");
+
+addBook.addEventListener("click",()=>{
+    const book4= new Book("book4","author4",500,false);
+    
+    addBookToLibrary(book4);
+
+    
+
+});
+    
 
 
-console.log(myLibrary);
-addBookToLibrary("book4","author4",500,false);
-console.log(myLibrary);
+
+
+
+
+
 
 
 const cards = document.getElementById("cards");
 
-for(let i=0;i<myLibrary.length-1;i++){
+for(let i=0;i<myLibrary.length;i++){
 
     const book = myLibrary[i];
 
@@ -61,12 +72,5 @@ for(let i=0;i<myLibrary.length-1;i++){
     
 }
 
-
-const addBook = document.getElementById("addBook");
-
-addBook.addEventListener("click",()=>{
-    Book();
-});
-    
 
 
