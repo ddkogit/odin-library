@@ -87,7 +87,15 @@ for(let i=0;i<myLibrary.length;i++){
     
     card.append(cloneReadButton);
 
-        
+    cloneReadButton.addEventListener("click",()=>{
+        if(cloneReadButton.innerHTML=="read"){
+         
+            cloneReadButton.innerHTML="not read";
+        }
+        else{
+            cloneReadButton.innerHTML="read";
+        }
+    })
     
     if(myLibrary[i].read){
         cloneReadButton.textContent="read";
@@ -164,6 +172,16 @@ submit.addEventListener("click",()=>{
         cloneReadButton.textContent="not read";
 
     }
+    cloneReadButton.addEventListener("click",()=>{
+        if(cloneReadButton.innerHTML=="read"){
+         
+            cloneReadButton.innerHTML="not read";
+        }
+        else{
+            cloneReadButton.innerHTML="read";
+        }
+    })
+    
     
     title.value="";
     author.value="";
