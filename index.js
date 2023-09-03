@@ -35,7 +35,9 @@ function addBookToLibrary(book4) {
 
 function createBookCard(book){
     const card = document.createElement("div");
-    card.classList="card";
+    card.classList.add("card");
+
+   
 
     const bookInfo = `Title: ${book.title}<br>Author: ${book.author}<br>Pages: ${book.pages}<br>Read: ${book.read ? "Yes" : "No"}`;
     card.innerHTML=bookInfo;
@@ -53,9 +55,6 @@ addBook.addEventListener("click",()=>{
 
     openForm.showModal();
    
-
-    
-
 });
     
 
@@ -73,7 +72,11 @@ for(let i=0;i<myLibrary.length;i++){
     const book = myLibrary[i];
 
     const card = createBookCard(book);  
- 
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("removeButton");
+    removeButton.textContent="Remove";
+    
+    card.append(removeButton);
 
     cards.append(card);
    
@@ -96,16 +99,31 @@ close.addEventListener("click",()=>{
 const submit = document.querySelector(".submit");
 
 
+//submit click
+
+const title = document.querySelector(".title");
+const author = document.querySelector(".author");
+const pages = document.querySelector(".pages");
+const read = document.querySelector(".read");
+
+
+
 submit.addEventListener("click",()=>{
  
 
     const book4= new Book("book4","author4",500,false);
+    const book5= new Book(title.value,author.value,pages.value,read.value);
     
-    addBookToLibrary(book4);
+    title.value="";
+    author.value="";
+    pages.value="";
+    read.value="";
+
+    addBookToLibrary(book5);
     
     
 
-    const newCard = createBookCard(book4);
+    const newCard = createBookCard(book5);
 
     openForm.close();
 
