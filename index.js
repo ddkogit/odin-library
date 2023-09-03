@@ -178,11 +178,13 @@ submit.addEventListener("click",()=>{
     if(read.checked==true){
 
         cloneReadButton.textContent="read";
-       
-
+        
+        cloneReadButton.style.backgroundColor="aqua";
+        
     }
     else{
         cloneReadButton.textContent="not read";
+        cloneReadButton.style.backgroundColor="orange";
      
 
     }
