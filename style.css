@@ -55,3 +55,16 @@ gap:10px
     display: block;
     margin:20px;
 }
+
+button{
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.readColor{
+    background-color: aqua;
+}
+.notReadColor{
+    background-color: orange;
+}

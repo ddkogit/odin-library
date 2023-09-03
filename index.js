@@ -91,9 +91,15 @@ for(let i=0;i<myLibrary.length;i++){
         if(cloneReadButton.innerHTML=="read"){
          
             cloneReadButton.innerHTML="not read";
+
+            cloneReadButton.style.backgroundColor="orange";
+            
         }
         else{
             cloneReadButton.innerHTML="read";
+            
+            cloneReadButton.style.backgroundColor="aqua";
+            
         }
     })
     
@@ -176,9 +182,15 @@ submit.addEventListener("click",()=>{
         if(cloneReadButton.innerHTML=="read"){
          
             cloneReadButton.innerHTML="not read";
+
+            cloneReadButton.style.backgroundColor="orange";
+            
         }
         else{
             cloneReadButton.innerHTML="read";
+            
+            cloneReadButton.style.backgroundColor="aqua";
+            
         }
     })
     
