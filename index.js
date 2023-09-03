@@ -249,4 +249,10 @@ function removeCardAndUpdateArray(card) {
     }
 }
 
-//read
+
+inputField.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent form submission by Enter key
+      submitButton.click(); // Trigger the button click event
+    }
+  });
