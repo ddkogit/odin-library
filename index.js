@@ -65,23 +65,24 @@ addBook.addEventListener("click",()=>{
 // dynamic card update 
 
 
-
+const removeButton = document.createElement("button");
+removeButton.classList.add("removeButton");
+removeButton.textContent="Remove";
 
 for(let i=0;i<myLibrary.length;i++){
 
     const book = myLibrary[i];
 
     const card = createBookCard(book);  
-    const removeButton = document.createElement("button");
-    removeButton.classList.add("removeButton");
-    removeButton.textContent="Remove";
+    const cloneRemoveButton = removeButton.cloneNode(true);
     
-    card.append(removeButton);
+    card.append(cloneRemoveButton);
 
     cards.append(card);
    
     
 }
+
 
 
 // dilogue box and form
@@ -125,6 +126,11 @@ submit.addEventListener("click",()=>{
 
     const newCard = createBookCard(book5);
 
+    const cloneRemoveButton = removeButton.cloneNode(true);
+    
+    newCard.append(cloneRemoveButton);
+
+
     openForm.close();
 
     cards.append(newCard);
@@ -132,5 +138,59 @@ submit.addEventListener("click",()=>{
 
 
 
+//remove code
+
+// cards.addEventListener("click", (event) => {
+//     if (event.target.classList.contains("removeButton")) {
+//         // Button with class "removeButton" was clicked
+//         // myLibrary.pop();
+//         console.log(myLibrary);
+//         // You can access the specific button or perform removal logic here
+//     }
+// });
 
 
+//test
+const className = "removeButton";
+
+// Get all elements with the specified class
+const elementsWithClass = document.getElementsByClassName(className);
+
+// Iterate through the elements and log their index (position) in the DOM
+for (let i = 0; i < elementsWithClass.length; i++) {
+   
+    cards.addEventListener("click", (event) => {
+        if (event.target.classList.contains("removeButton")) {
+            // Button with class "removeButton" was clicked
+            // myLibrary.pop();
+            console.log(myLibrary);
+            // You can access the specific button or perform removal logic here
+        }
+    });
+}
+
+// Log the total count of elements with the specified class
+cards.addEventListener("click", (event) => {
+    if (event.target.classList.contains("removeButton")) {
+        // A button with class "removeButton" was clicked
+
+        // Find the parent card element and remove it
+        const card = event.target.closest(".card");
+        if (card) {
+            // Remove the card from the DOM
+            removeCardAndUpdateArray(card);
+        }
+    }
+});
+
+function removeCardAndUpdateArray(card) {
+    const cardIndex = Array.from(cards.children).indexOf(card);
+
+    if (cardIndex !== -1) {
+        // Remove the card from the DOM
+        card.remove();
+
+        // Remove the corresponding book from the array
+        myLibrary.splice(cardIndex, 1);
+    }
+}
