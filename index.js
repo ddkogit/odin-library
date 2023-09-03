@@ -33,16 +33,18 @@ function addBookToLibrary(book4) {
     myLibrary.push(book4);
 }
 
-function createBookCard(book){
-    const card = document.createElement("div");
-    card.classList.add("card");
 
+
+const card = document.createElement("div");
+card.classList.add("card");
+function createBookCard(book){
+    const CloneCard = card.cloneNode(true);
    
 
     const bookInfo = `Title: ${book.title}<br>Author: ${book.author}<br>Pages: ${book.pages}<br>Read: ${book.read ? "Yes" : "No"}`;
-    card.innerHTML=bookInfo;
+    CloneCard.innerHTML=bookInfo;
 
-    return card;
+    return CloneCard;
 }
 
 const addBook = document.getElementById("addBook");
@@ -69,14 +71,31 @@ const removeButton = document.createElement("button");
 removeButton.classList.add("removeButton");
 removeButton.textContent="Remove";
 
+const readButton = document.createElement("button");
+readButton.classList.add("readButton");
+
+
 for(let i=0;i<myLibrary.length;i++){
 
     const book = myLibrary[i];
 
     const card = createBookCard(book);  
     const cloneRemoveButton = removeButton.cloneNode(true);
-    
     card.append(cloneRemoveButton);
+
+    const cloneReadButton = readButton.cloneNode(true);
+    
+    card.append(cloneReadButton);
+
+        
+    
+    if(myLibrary[i].read){
+        cloneReadButton.textContent="read";
+    }
+    else{
+        cloneReadButton.textContent="not read";
+    }
+
 
     cards.append(card);
    
@@ -117,59 +136,49 @@ submit.addEventListener("click",()=>{
     
     console.log(read.checked);
 
-    title.value="";
-    author.value="";
-    pages.value="";
-    read.checked=false;
-
     addBookToLibrary(book5);
-    
-    
 
+    
     const newCard = createBookCard(book5);
 
     const cloneRemoveButton = removeButton.cloneNode(true);
     
     newCard.append(cloneRemoveButton);
+    const cloneReadButton = readButton.cloneNode(true);
+    
+    newCard.append(cloneReadButton);
 
+
+  
+   
 
     openForm.close();
 
     cards.append(newCard);
+
+    if(read.checked==true){
+
+        cloneReadButton.textContent="read";
+    }
+    else{
+        cloneReadButton.textContent="not read";
+
+    }
+    
+    title.value="";
+    author.value="";
+    pages.value="";
+    read.checked=false;
+
+ 
+
+    
+
 });
 
 
 
-//remove code
 
-// cards.addEventListener("click", (event) => {
-//     if (event.target.classList.contains("removeButton")) {
-//         // Button with class "removeButton" was clicked
-//         // myLibrary.pop();
-//         console.log(myLibrary);
-//         // You can access the specific button or perform removal logic here
-//     }
-// });
-
-
-//test
-
-
-// Get all elements with the specified class
-// const elementsWithClass = document.getElementsByClassName(className);
-
-// Iterate through the elements and log their index (position) in the DOM
-// for (let i = 0; i < elementsWithClass.length; i++) {
-   
-//     cards.addEventListener("click", (event) => {
-//         if (event.target.classList.contains("removeButton")) {
-//             // Button with class "removeButton" was clicked
-//             // myLibrary.pop();
-//             console.log(myLibrary);
-//             // You can access the specific button or perform removal logic here
-//         }
-//     });
-// }
 
 // Log the total count of elements with the specified class
 cards.addEventListener("click", (event) => {
@@ -185,10 +194,13 @@ cards.addEventListener("click", (event) => {
     }
 });
 
+
+
 function removeCardAndUpdateArray(card) {
     const cardIndex = Array.from(cards.children).indexOf(card);
 
     if (cardIndex !== -1) {
+        index=cardIndex
         // Remove the card from the DOM
         card.remove();
 
@@ -196,3 +208,5 @@ function removeCardAndUpdateArray(card) {
         myLibrary.splice(cardIndex, 1);
     }
 }
+
+//read
