@@ -62,7 +62,21 @@ gap:50px
 
  width: 250px;
 
+ background-color: var(--extra-color);
+ border-radius: 10px;
 
+
+}
+
+.openForm input[type="text"]{
+        border: 0;
+        height: 20px;
+        border-radius: 3px;
+        padding: 3px;
+}
+
+.openForm button{
+    background-color:var(--secondary-color);
 }
 
 .openForm::backdrop{
